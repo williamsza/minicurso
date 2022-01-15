@@ -6,9 +6,15 @@ const momeDoPersonagem = document.querySelector('#nome');
 const especie = document.querySelector('especie');
 const condicao = document.querySelector('status');
 
-pegarPersonagem = () => {
+gerarValorAleatorio = () => {
 
-    return fetch(`https://rickendmortyapi.com/api/character/2`, {
+    return Math.floor(Math.random() * 671);
+}
+
+pegarPersonagem = () => {
+    let numeroAleatorio = gerarValorAleatorio();
+
+    return fetch(`https://rickendmortyapi.com/api/character/${numeroAleatorio}`, {
         method:'GET',
         headers: {
             Accept: 'application/json',
